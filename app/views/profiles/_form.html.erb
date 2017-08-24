@@ -1,0 +1,32 @@
+<%= form_with(model: profile, local: true) do |form| %>
+  <% if profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+
+      <ul>
+      <% profile.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :Name %>
+    <%= form.text_field :Name, id: :profile_Name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Descrption %>
+    <%= form.text_area :Descrption, id: :profile_Descrption %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Age %>
+    <%= form.number_field :Age, id: :profile_Age %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
